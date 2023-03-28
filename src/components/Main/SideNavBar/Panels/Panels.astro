@@ -6,10 +6,10 @@ import MainButton from "./MainButton.astro";
 ---
 
 <div id="panels" class="w-full space-y-3">
-  <div class="author text-center space-y-2">
+  <div class="text-center space-y-2">
     <img
       src="https://shoka.lostyu.me/images/avatar.jpg"
-      class="rounded-full avatar"
+      class="rounded-full w-40 h-40 m-auto"
       alt=""
     />
     <h1 class="">{UserName}</h1>
@@ -36,8 +36,5 @@ import MainButton from "./MainButton.astro";
 <style>
   #panels {
     padding: 15px;
-  }
-  .avatar {
-    @apply w-40 h-40 m-auto;
   }
 </style>
