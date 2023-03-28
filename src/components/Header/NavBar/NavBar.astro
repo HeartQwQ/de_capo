@@ -5,18 +5,20 @@ import BreadSlices from "./BreadSlices.astro";
 ---
 
 <nav>
-  <div class="flex wh-full max-lg:w-screen min-lg:container min-lg:m-auto">
+  <div
+    class="flex w-full h-full max-lg:w-screen min-lg:container min-lg:m-auto"
+  >
     <BreadSlices />
     <p class="min-sm:hidden flex-1 text-center" style="line-height: 50px;">
       {BE_Determined}
     </p>
-    <div class="max-sm:hidden navItem flex-1">
+    <div class="max-sm:hidden flex items-center space-x-4 flex-1">
       <span>{BE_Determined}</span>
       <HeaderLink href="/" class={"icon-chengbao"}>首页</HeaderLink>
       <HeaderLink href="/blog" class={"icon-feather"}>文章</HeaderLink>
       <HeaderLink href="/about" class={"icon-wode"}>关于</HeaderLink>
     </div>
-    <div class="navItem">
+    <div class="flex items-center space-x-4">
       <HeaderLink class={"icon-richu"} />
       <HeaderLink class={"icon-sousuo"} />
     </div>
