@@ -1,0 +1,36 @@
+---
+import { BE_Determined, HOME_TITLE, HOME_DESCRIPTION } from "../../consts";
+const isHome = Astro.url.href === import.meta.env.HOME;
+const props = "title";
+---
+
+{
+  isHome ? (
+    <div class="header-title">
+      <h1>{BE_Determined}</h1>
+      <p>{BE_Determined}</p>
+    </div>
+  ) : (
+    <div class="header-title">
+      <h1>{props}</h1>
+      <div>
+        <p>{props}</p>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .header-title {
+    @apply fixed w-full px-2 flex flex-col justify-center items-center text-center -z-10;
+    top: 50px;
+    height: calc(50vh - 50px);
+    letter-spacing: 0.125em;
+  }
+  h1 {
+    @apply text-2xl my-5;
+  }
+  p {
+    font-size: 12px;
+  }
+</style>

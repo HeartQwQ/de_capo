@@ -1,0 +1,14 @@
+---
+const { num } = Astro.props;
+---
+
+<a href="#" class="totalArticle">
+  <p class="font-black text-lg">{num}</p>
+  <p class="text-sm"><slot /></p>
+</a>
+
+<style>
+  .totalArticle {
+    @apply flex flex-col items-center flex-1 hover:text-blue-400;
+  }
+</style>

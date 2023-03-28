@@ -1,0 +1,33 @@
+---
+let { href, icon } = Astro.props;
+
+const { pathname } = Astro.url;
+
+const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+---
+
+<a href={href} class:list={["SideButton", { active: isActive }]}>
+  <i class:list={["iconfont mr-1", icon]}></i>
+  <slot />
+</a>
+
+<style>
+  .SideButton {
+    @apply rounded-2xl w-full h-12 text-center text-9 space-x-4;
+    line-height: 3rem;
+  }
+  .SideButton:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: inherit;
+    transition: all 0.2s ease-in-out 0s;
+  }
+  .active {
+    color: #fff;
+    background-image: linear-gradient(to right, #ed6ea0 0, #ec8c69 100%);
+    box-shadow: 0 0 0.75rem rgba(237, 110, 160, 0.3);
+  }
+  .active:hover {
+    color: #fff;
+    box-shadow: 0 0 0.75rem #ed6ea0;
+  }
+</style>

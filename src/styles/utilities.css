@@ -1,0 +1,7 @@
+@tailwind utilities;
+
+@layer utilities {
+  .wh-full{
+    @apply w-full h-full;
+  }
+}

@@ -1,0 +1,7 @@
+@tailwind components;
+
+@layer components {
+  .navItem {
+    @apply flex items-center space-x-4;
+  }
+}

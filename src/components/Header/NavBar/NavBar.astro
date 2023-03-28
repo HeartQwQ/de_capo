@@ -1,0 +1,30 @@
+---
+import HeaderLink from "./HeaderLink.astro";
+import { BE_Determined } from "@/consts.js";
+import BreadSlices from "./BreadSlices.astro";
+---
+
+<nav>
+  <div class="flex wh-full max-lg:w-screen min-lg:container min-lg:m-auto">
+    <BreadSlices />
+    <p class="min-sm:hidden flex-1 text-center" style="line-height: 50px;">
+      {BE_Determined}
+    </p>
+    <div class="max-sm:hidden navItem flex-1">
+      <span>{BE_Determined}</span>
+      <HeaderLink href="/" class={"icon-chengbao"}>首页</HeaderLink>
+      <HeaderLink href="/blog" class={"icon-feather"}>文章</HeaderLink>
+      <HeaderLink href="/about" class={"icon-wode"}>关于</HeaderLink>
+    </div>
+    <div class="navItem">
+      <HeaderLink class={"icon-richu"} />
+      <HeaderLink class={"icon-sousuo"} />
+    </div>
+  </div>
+</nav>
+<style>
+  nav {
+    @apply fixed top-0 left-0 w-full;
+    height: 50px;
+  }
+</style>

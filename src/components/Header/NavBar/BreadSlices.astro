@@ -1,0 +1,28 @@
+<div class="min-lg:hidden open">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<style>
+  div {
+    @apply flex flex-col justify-center items-center cursor-pointer px-5 min-sm:mr-8;
+  }
+  span {
+    @apply bg-white transition-all duration-500;
+    width: 22px;
+    height: 2px;
+    margin-bottom: 4px;
+    border-radius: 0.625rem;
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
+  }
+  .open span:nth-child(1) {
+    transform: rotate(-45deg) translateX(-8px);
+  }
+  .open span:nth-child(2) {
+    opacity: 0;
+  }
+  .open span:nth-child(3) {
+    transform: rotate(45deg) translateX(-8px);
+  }
+</style>

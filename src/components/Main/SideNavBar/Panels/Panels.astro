@@ -1,0 +1,43 @@
+---
+import { UserName, Motto } from "@/consts";
+import TotalArticle from "./TotalArticle.astro";
+import SideIcon from "./SideIcon.astro";
+import MainButton from "./MainButton.astro";
+---
+
+<div id="panels" class="w-full space-y-3">
+  <div class="author text-center space-y-2">
+    <img
+      src="https://shoka.lostyu.me/images/avatar.jpg"
+      class="rounded-full avatar"
+      alt=""
+    />
+    <h1 class="">{UserName}</h1>
+    <h2 class="text-9">{Motto}</h2>
+  </div>
+  <div class="flex justify-center divide-x text-6">
+    <TotalArticle num={999}>文章</TotalArticle>
+    <TotalArticle num={999}>分类</TotalArticle>
+    <TotalArticle num={999}>标签</TotalArticle>
+  </div>
+  <div class="flex justify-between">
+    <SideIcon color="#000" icon={"icon-github-fill"} />
+    <SideIcon color="#c71d23" icon={"icon-gitee"} />
+    <SideIcon color="#00a5dc" icon={"icon-bilibili-fill"} />
+    <SideIcon color="#006cff" icon={"icon-juejin"} />
+    <SideIcon color="#1e88e5" icon={"icon-zhihu"} />
+  </div>
+  <div class="space-y-3 p-5">
+    <MainButton href="/" icon={"icon-chengbao"}>首页</MainButton>
+    <MainButton href="/about" icon={"icon-wode"}>关于</MainButton>
+    <MainButton href="/article" icon={"icon-feather"}>文章</MainButton>
+  </div>
+</div>
+<style>
+  #panels {
+    padding: 15px;
+  }
+  .avatar {
+    @apply w-40 h-40 m-auto;
+  }
+</style>

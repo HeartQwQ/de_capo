@@ -1,0 +1,44 @@
+---
+const { href, class: icon } = Astro.props;
+
+const { pathname } = Astro.url;
+const isActive = href === pathname || href === pathname.replace(/\/$/, "");
+---
+
+<div class:list={["open", { openActive: isActive }]}>
+  <a href={href}>
+    <i class:list={["iconfont", icon]}></i>
+    <slot />
+  </a>
+  <span class:list={["underline", { active: isActive }]}></span>
+</div>
+
+<script>
+  document.querySelectorAll(".open").forEach((index) => {
+    index.addEventListener("mouseenter", function (e) {
+      if (e.target) {
+        (e.target as HTMLDivElement).children[1].style.width = "100%";
+      }
+    });
+    index.addEventListener("mouseleave", function (e) {
+      if (e.target) {
+        if ((e.target as HTMLDivElement).classList[1] !== "openActive") {
+          (e.target as HTMLDivElement).children[1].style.width = "0";
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .open {
+    @apply inline-block relative;
+  }
+  .underline {
+    @apply absolute left-1/2 -bottom-1 w-0 rounded-full bg-white -translate-x-1/2 transition-all ease-in-out duration-500;
+    height: 3px;
+  }
+  .active {
+    width: 100%;
+  }
+</style>

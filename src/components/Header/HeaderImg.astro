@@ -1,0 +1,70 @@
+<div class="HeaderImg">
+  <div class="rotationAnimation animation1"></div>
+  <div class="rotationAnimation animation2"></div>
+  <div class="rotationAnimation animation3"></div>
+  <div class="rotationAnimation animation4"></div>
+  <div class="rotationAnimation animation5"></div>
+  <div class="rotationAnimation animation6"></div>
+</div>
+<style>
+  .HeaderImg {
+    @apply fixed top-0 left-0 w-full h-70vh -z-20;
+  }
+  .HeaderImg::before {
+    content: "";
+    @apply absolute top-0 left-0 wh-full bg-black opacity-20 -z-10;
+  }
+  .rotationAnimation {
+    @apply absolute top-0 left-0 wh-full bg-center bg-no-repeat bg-cover opacity-0 -z-50;
+    animation: rotationAnimation 36s linear infinite;
+  }
+  .animation1 {
+    animation-delay: 0s;
+    background-image: url("https://img.timelessq.com/images/2022/07/26/140009170121c1a23f1a969d29c46fee.jpg");
+  }
+  .animation2 {
+    animation-delay: 6s;
+    background-image: url("	https://img.timelessq.com/images/2022/07/26/a645009f08917c96e3c883e675f5aa58.jpg");
+  }
+  .animation3 {
+    animation-delay: 12s;
+    background-image: url("	https://img.timelessq.com/images/2022/07/26/a05ebdd3b7f197e626fa1253c6521ef5.jpg");
+  }
+  .animation4 {
+    animation-delay: 18s;
+    background-image: url("	https://img.timelessq.com/images/2022/07/26/45f3e5855eee8430aabb492836518779.jpg");
+  }
+  .animation5 {
+    animation-delay: 24s;
+    background-image: url("https://img.timelessq.com/images/2022/07/26/7dad57904e56f14df7975109aaf03bc2.jpg");
+  }
+  .animation6 {
+    animation-delay: 30s;
+    background-image: url("https://img.timelessq.com/images/2022/07/26/626f157a4ff74c7984f4110e38031524.jpg");
+  }
+  @keyframes rotationAnimation {
+    0% {
+      opacity: 0;
+      animation-timing-function: ease-in;
+    }
+    2% {
+      opacity: 1;
+    }
+    8% {
+      opacity: 1;
+      transform: scale(1.05);
+      animation-timing-function: ease-out;
+    }
+    17% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    25% {
+      opacity: 0;
+      transform: scale(1.2);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+</style>
