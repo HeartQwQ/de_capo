@@ -21,17 +21,32 @@ import Panels from "./Panels/Panels.astro";
 </div>
 
 <script>
-  // document.addEventListener("scroll", function (e) {
-  //   const sideNavBar = document.querySelector("#sideNavBar");
-  //   const scrollY =
-  //     document.documentElement.scrollTop || document.body.scrollTop;
-  //   console.log("scrollY", scrollY);
-  //   console.log("sideNavBar", sideNavBar.scrollTop);
-  // });
+  const main = document.querySelector("main");
+  document.addEventListener("scroll", function () {
+    const scrollY =
+      document.documentElement.scrollTop || document.body.scrollTop;
+    const sideNavBar = document.querySelector("#sideNavBar");
+    // 判断是否超过Main
+    if (main && scrollY > main.offsetTop - 20) {
+      if (sideNavBar) {
+        const sideNavBarLeft = (sideNavBar as HTMLDivElement).offsetLeft;
+        sideNavBar.classList.add("fiexd");
+        sideNavBar.setAttribute("style", `left:${sideNavBarLeft}px;`);
+      }
+    } else if (main && scrollY < main.offsetTop) {
+      if (sideNavBar) {
+        sideNavBar.classList.remove("fiexd");
+      }
+    }
+  });
 </script>
 <style>
   #sideNavBar {
+    padding-top: 10px;
     width: 240px;
+  }
+  .fiexd {
+    @apply fixed top-0;
   }
   a {
     flex: 1;
