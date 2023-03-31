@@ -1,0 +1,33 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  excerpt: string;
+}
+const { title, href = "/", excerpt, tag } = Astro.props;
+---
+
+<article class="card">
+  <a href={href} class="flex-1">
+    <img
+      src="https://img.timelessq.com/images/2022/07/26/c22bb7736559a7554506b05203018145.jpg"
+      alt=""
+      class="w-full h-full object-cover"
+    />
+  </a>
+  <div class="flex-1 p-2">
+    <div class="flex justify-end">日期,字数</div>
+    <h1>{title}</h1>
+    <p>{excerpt}</p>
+    <div>{tag}</div>
+  </div>
+</article>
+
+<style>
+  .card {
+    @apply w-full h-56 shadow-xl flex rounded-2xl overflow-hidden;
+  }
+  a {
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  }
+</style>

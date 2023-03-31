@@ -1,0 +1,43 @@
+---
+import Panels from "./SideNavBar/Panels.astro";
+import Link from "../Link.astro";
+---
+
+<div class="static w-60 max-lg:hidden">
+  <div id="sideNavBar">
+    <Panels />
+    <div class="w-full flex justify-center">
+      <Link
+        href="#"
+        icon="icon-arrowleft text-2xl"
+        class="hover:text-blue-400"
+      />
+      <Link href="#" icon="icon-arrowup text-2xl" class="hover:text-red-400" />
+      <Link
+        href="#"
+        icon="icon-arrowdown text-2xl"
+        class="hover:text-red-400"
+      />
+      <Link
+        href="#"
+        icon="icon-arrowright text-2xl"
+        class="hover:text-blue-400"
+      />
+    </div>
+  </div>
+</div>
+<style>
+  #sideNavBar {
+    @apply relative top-0 px-5 w-60 flex flex-col justify-between bg-white transition-all duration-700 ease-in-out;
+    height: 100dvh;
+  }
+  a {
+    padding: 0.5rem;
+    color: #666;
+    font-weight: 800;
+    transition: all 0.2s ease-in-out;
+  }
+  #sideNavBar.fiexd {
+    position: fixed;
+  }
+</style>

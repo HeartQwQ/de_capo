@@ -1,32 +1,38 @@
 ---
-import HeaderLink from "./HeaderLink.astro";
-import { BE_Determined } from "@/consts.js";
+import Link from "@/components/Link.astro";
+import { BE_Determined, linkList } from "@/consts.js";
 import BreadSlices from "./BreadSlices.astro";
+
+const { pathname } = Astro.url;
 ---
 
-<nav>
+<nav class="fixed top-0 left-0 w-full">
   <div
-    class="flex w-full h-full max-lg:w-screen min-lg:container min-lg:m-auto"
+    class="w-full h-full flex justify-between items-center max-lg:px-5 min-lg:container"
   >
     <BreadSlices />
-    <p class="min-sm:hidden flex-1 text-center" style="line-height: 50px;">
-      {BE_Determined}
-    </p>
-    <div class="max-sm:hidden flex items-center space-x-4 flex-1">
-      <span>{BE_Determined}</span>
-      <HeaderLink href="/" class={"icon-chengbao"}>首页</HeaderLink>
-      <HeaderLink href="/blog" class={"icon-feather"}>文章</HeaderLink>
-      <HeaderLink href="/about" class={"icon-wode"}>关于</HeaderLink>
+    <div class="space-x-4 max-md:hidden">
+      {
+        linkList.map((item) => (
+          <Link
+            class={`navLink ${item.path === pathname ? "active" : ""}`}
+            href={item.path}
+            icon={item.icon}
+          >
+            {item.name}
+          </Link>
+        ))
+      }
     </div>
-    <div class="flex items-center space-x-4">
-      <HeaderLink class={"icon-richu"} />
-      <HeaderLink class={"icon-sousuo"} />
+    <div class="min-md:hidden">{BE_Determined}</div>
+    <div class="space-x-4">
+      <i class="iconfont icon-richu"></i>
+      <i class="iconfont icon-sousuo"></i>
     </div>
   </div>
 </nav>
 <style>
   nav {
-    @apply fixed top-0 left-0 w-full;
     height: 50px;
   }
 </style>

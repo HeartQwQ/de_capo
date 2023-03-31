@@ -1,15 +1,16 @@
 ---
-import BaseHead from "@/components/BaseHead.astro";
-import Header from "@/components/Header/Header.astro";
+import BaseHead from "./BaseHead.astro";
+import Header from "./Header.astro";
 import Wave from "@/components/Wave.astro";
-import Main from "@/components/Main/Main.astro";
+import Main from "./Main.astro";
+const { title, description } = Astro.props;
 ---
 
 <html lang="zh-CN">
   <head>
-    <BaseHead title={"title"} description={"description"} />
+    <BaseHead title={title} description={description} />
   </head>
-  <body class="">
+  <body>
     <Header />
     <Wave />
     <Main />
@@ -18,5 +19,6 @@ import Main from "@/components/Main/Main.astro";
       console.log("headerImg", -20);
       console.log("headerImg-Animation", -50);
     </script>
+    <script src="../index.js"></script>
   </body>
 </html>

@@ -1,5 +1,17 @@
 @tailwind utilities;
 
 @layer utilities {
-
+  .navLink{
+    @apply relative before:navLinkBefore hover:before:w-full;
+  }
+  .navLinkBefore{
+    @apply absolute left-1/2 -bottom-1 inline-block w-0 bg-white rounded-full -translate-x-1/2 transition-all duration-500;
+    height: 3px;
+  }
+  .contentWidth {
+    width: calc(100% - 15.75rem);
+  }
+  .dividerPseudo {
+    @apply flex-1 bg-c h-px opacity-80;
+  }
 }

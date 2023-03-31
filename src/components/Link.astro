@@ -1,0 +1,19 @@
+---
+type Props = {
+  href: string;
+  icon?: string;
+  class?: string;
+};
+const { href, icon, class: className } = Astro.props;
+---
+
+<a class={className} href={href}>
+  {icon ? <i class:list={["iconfont", icon]} /> : null}
+  <slot />
+</a>
+
+<style>
+  .active::before {
+    width: 100%;
+  }
+</style>

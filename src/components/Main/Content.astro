@@ -1,9 +1,12 @@
 ---
+import Divider from "./Content/Divider.astro";
+import Card from "./Content/Card.astro";
 ---
 
-<div class="bg-slate-500" style="height: 3000px;">文章</div>
-<style>
-  div {
-    width: calc(100% - 15.75rem);
-  }
-</style>
+<div
+  class="max-lg:w-full min-lg:contentWidth pt-3 px-5 shadow-xl"
+  style="height: 3000px;"
+>
+  <Divider>置顶文章</Divider>
+  <Card title="标题" excerpt="1" tag="主题" />
+</div>

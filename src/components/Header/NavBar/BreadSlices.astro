@@ -1,12 +1,14 @@
-<div class="min-lg:hidden open">
+<div class="breadSlices">
   <span></span>
   <span></span>
   <span></span>
 </div>
 
+<script></script>
+
 <style>
-  div {
-    @apply flex flex-col justify-center items-center cursor-pointer px-5 min-sm:mr-8;
+  .breadSlices {
+    @apply flex flex-col cursor-pointer min-sm:mr-8 min-lg:hidden;
   }
   span {
     @apply bg-white transition-all duration-500;
@@ -14,7 +16,6 @@
     height: 2px;
     margin-bottom: 4px;
     border-radius: 0.625rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.5);
   }
   .open span:nth-child(1) {
     transform: rotate(-45deg) translateX(-8px);

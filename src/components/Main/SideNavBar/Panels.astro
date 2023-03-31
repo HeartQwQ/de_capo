@@ -5,7 +5,7 @@ import SideIcon from "./SideIcon.astro";
 import MainButton from "./MainButton.astro";
 ---
 
-<div id="panels" class="w-full space-y-3">
+<div class="w-full pt-5 space-y-5">
   <div class="text-center space-y-2">
     <img
       src="https://shoka.lostyu.me/images/avatar.jpg"
@@ -27,14 +27,9 @@ import MainButton from "./MainButton.astro";
     <SideIcon color="#006cff" icon={"icon-juejin"} />
     <SideIcon color="#1e88e5" icon={"icon-zhihu"} />
   </div>
-  <div class="space-y-3 p-5">
+  <div class="space-y-3 px-4">
     <MainButton href="/" icon={"icon-chengbao"}>首页</MainButton>
     <MainButton href="/about" icon={"icon-wode"}>关于</MainButton>
     <MainButton href="/article" icon={"icon-feather"}>文章</MainButton>
   </div>
 </div>
-<style>
-  #panels {
-    padding: 15px;
-  }
-</style>

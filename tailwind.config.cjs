@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
 	content: ['./src/**/*.{astro,html}'],
+	// important: true,
 	theme: {
 		extend: {
 			height: {
@@ -14,10 +15,9 @@ module.exports = {
 				"9": '#999',
 				"c": '#ccc',
 			},
-			lineHeight: {
-				'14': '3.5rem',
-				'20': '5rem',
-			},
+		},
+		container: {
+			center: true,
 		},
 		screens: {
 			// 最小
@@ -31,7 +31,6 @@ module.exports = {
 			'max-md': { 'max': '767px' },
 			'max-sm': { 'max': '639px' },
 		},
-
 	},
 	plugins: [],
 }
