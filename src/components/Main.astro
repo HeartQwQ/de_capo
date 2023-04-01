@@ -1,0 +1,53 @@
+---
+import Browse from "./SideNavBar/Browse.astro";
+---
+
+<main class="w-full bg-white">
+  <div class="min-lg:container flex justify-between">
+    <div
+      class="max-lg:w-full min-lg:contentWidth pt-3 px-5 shadow-xl"
+      style="height: 3000px;"
+    >
+      <slot name="Content" />
+    </div>
+    <div class="static w-60 max-lg:hidden">
+      <div id="sideNavBar">
+        <slot name="SideNavBar" />
+        <Browse />
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const main = document.querySelector("main");
+  const sideNavBar = document.querySelector("#sideNavBar") as HTMLDivElement;
+  isMainTop();
+  // 滚动事件
+  document.addEventListener("scroll", function () {
+    isMainTop();
+  });
+  function isMainTop() {
+    if (document.documentElement.clientWidth > 1223) {
+      // 获取 页面顶部到当前位置的距离
+      const scrollY =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      // 判断是否超过Main
+      if (main && scrollY > main.offsetTop - 10) {
+        sideNavBar.classList.add("fiexd");
+      } else if (main && scrollY < main.offsetTop) {
+        sideNavBar.classList.remove("fiexd");
+      }
+    }
+  }
+</script>
+
+<style>
+  #sideNavBar {
+    @apply relative top-0 px-5 w-60 flex flex-col justify-between bg-white transition-all duration-700 ease-in-out;
+    height: 100dvh;
+  }
+  #sideNavBar.fiexd {
+    position: fixed;
+  }
+</style>

@@ -1,8 +1,13 @@
 ---
-import BaseHead from "./BaseHead.astro";
-import Header from "./Header.astro";
+import "@/style/global.css";
+import BaseHead from "@/components/BaseHead.astro";
+import Header from "@/components/Header/Header.astro";
 import Wave from "@/components/Wave.astro";
-import Main from "./Main.astro";
+import Main from "@/components/Main.astro";
+export type Props = {
+  title: string;
+  description: string;
+};
 const { title, description } = Astro.props;
 ---
 
@@ -13,12 +18,12 @@ const { title, description } = Astro.props;
   <body>
     <Header />
     <Wave />
-    <Main />
+    <Main>
+      <slot name="Content" slot="Content" />
+      <slot name="SideNavBar" slot="SideNavBar" />
+    </Main>
     <script>
-      console.log("headerTitle", -10);
-      console.log("headerImg", -20);
-      console.log("headerImg-Animation", -50);
+      import "../state";
     </script>
-    <script src="../index.js"></script>
   </body>
 </html>

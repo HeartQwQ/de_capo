@@ -1,6 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@/layouts/Layout.astro";
+import Panels from "@/components/SideNavBar/Panels.astro";
+import Divider from "@/components/Divider.astro";
+import Card from "@/components/SideNavBar/Card.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+
+import { getCollection } from "astro:content";
+
+const entry = await getCollection("docs");
+
+const stickyPosts = entry.find((item) => item.data.topping);
 ---
 
-<Layout title={SITE_TITLE} description={SITE_DESCRIPTION} />
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div slot="Content">
+    <Divider>置顶文章</Divider>
+    <Card post={stickyPosts} />
+  </div>
+  <Panels slot="SideNavBar" />
+</Layout>

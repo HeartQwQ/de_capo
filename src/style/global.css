@@ -1,4 +1,16 @@
+@tailwind base;
+@tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+    @apply tracking-widest align-middle font-sans scroll-smooth antialiased;
+  }
+  a {
+    @apply inline-block;
+  }
+}
 
 @layer utilities {
   .navLink{

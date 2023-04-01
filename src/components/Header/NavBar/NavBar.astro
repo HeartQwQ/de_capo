@@ -1,6 +1,6 @@
 ---
 import Link from "@/components/Link.astro";
-import { BE_Determined, linkList } from "@/consts.js";
+import { SITE_TITLE, linkList } from "@/consts.js";
 import BreadSlices from "./BreadSlices.astro";
 
 const { pathname } = Astro.url;
@@ -12,6 +12,7 @@ const { pathname } = Astro.url;
   >
     <BreadSlices />
     <div class="space-x-4 max-md:hidden">
+      <span>{SITE_TITLE}</span>
       {
         linkList.map((item) => (
           <Link
@@ -24,7 +25,6 @@ const { pathname } = Astro.url;
         ))
       }
     </div>
-    <div class="min-md:hidden">{BE_Determined}</div>
     <div class="space-x-4">
       <i class="iconfont icon-richu"></i>
       <i class="iconfont icon-sousuo"></i>

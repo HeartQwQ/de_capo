@@ -1,14 +1,15 @@
 ---
+import type { CollectionEntry } from "astro:content";
 interface Props {
-  href: string;
-  title: string;
-  excerpt: string;
+  post: CollectionEntry<"docs"> | undefined;
 }
-const { title, href = "/", excerpt, tag } = Astro.props;
+
+// `post` will match your 'blog' collection schema type
+const { post } = Astro.props;
 ---
 
 <article class="card">
-  <a href={href} class="flex-1">
+  <a href={"posts/" + post?.slug} class="flex-1">
     <img
       src="https://img.timelessq.com/images/2022/07/26/c22bb7736559a7554506b05203018145.jpg"
       alt=""
@@ -16,10 +17,10 @@ const { title, href = "/", excerpt, tag } = Astro.props;
     />
   </a>
   <div class="flex-1 p-2">
-    <div class="flex justify-end">日期,字数</div>
-    <h1>{title}</h1>
-    <p>{excerpt}</p>
-    <div>{tag}</div>
+    <div class="flex justify-end">{post?.data.pubDate},字数</div>
+    <h1>{post?.data.title}</h1>
+    <p>{post?.data.description}</p>
+    <div>{post?.data.tags}</div>
   </div>
 </article>
 
