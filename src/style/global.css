@@ -4,8 +4,9 @@
 
 @layer base {
   html {
-    font-size: 16px;
-    @apply tracking-widest align-middle font-sans scroll-smooth antialiased;
+    height:3000px;
+    font-family: 'Noto Sans', sans-serif,'Noto Sans SC', sans-serif,'Noto Serif SC', serif;
+    @apply tracking-widest align-middle scroll-smooth antialiased text-base-text;
   }
   a {
     @apply inline-block;
@@ -21,9 +22,12 @@
     height: 3px;
   }
   .contentWidth {
-    width: calc(100% - 15.75rem);
+    width: calc(100% - 16rem);
   }
   .dividerPseudo {
-    @apply flex-1 bg-c h-px opacity-80;
+    @apply flex-1 h-px opacity-80 bg-divider;
+  }
+  .transition{
+    @apply transition-all duration-500;
   }
 }

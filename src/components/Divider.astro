@@ -1,10 +1,9 @@
-<h2
-  class="divider before:dividerPseudo before:mr-5 after:dividerPseudo after:ml-5"
->
+<h2 class="divider">
   <slot />
 </h2>
 <style>
   .divider {
-    @apply flex justify-between items-center text-center my-4 font-bold text-c text-2xl;
+    /* text-c */
+    @apply flex justify-between items-center text-center text-divider text-2xl my-6 font-black  before:dividerPseudo before:mr-5 after:dividerPseudo after:ml-5;
   }
 </style>

@@ -1,5 +1,5 @@
 ---
-import { BE_Determined } from "@/consts";
+import { SITE_TITLE } from "@/consts";
 
 const isHome = Astro.url.pathname === "/";
 ---
@@ -7,8 +7,8 @@ const isHome = Astro.url.pathname === "/";
 {
   isHome && (
     <div class="headerTitle">
-      <h1>{BE_Determined}</h1>
-      <p>{BE_Determined}</p>
+      <h1>{SITE_TITLE}</h1>
+      <p>{SITE_TITLE}</p>
     </div>
   )
 }

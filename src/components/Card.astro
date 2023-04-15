@@ -1,0 +1,79 @@
+---
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  post: CollectionEntry<"docs"> | undefined;
+}
+
+const { post } = Astro.props;
+---
+
+<article class="card">
+  <!-- 图片 -->
+  <a href={"posts/" + post?.slug} class="cardImg">
+    <img
+      src="https://img.timelessq.com/images/2022/07/26/c22bb7736559a7554506b05203018145.jpg"
+      alt={post?.data.categories}
+      class="w-full h-full object-cover transition-all duration-500"
+    />
+  </a>
+  <!-- 文章信息 -->
+  <div class="flex-1 p-5 flex flex-col space-y-2 relative">
+    <!-- 时间 字数信息 -->
+    <div class="mate justify-end">
+      <span>发表于</span>
+      <div class="space-x-1">
+        <i class="iconfont icon-rili"></i><span>{post?.data.pubDate}</span>
+      </div>
+      <div class="space-x-1">
+        <i class="iconfont icon-pen-nib"></i><span>{post?.data.length}</span
+        ><span>字</span>
+      </div>
+    </div>
+    <!-- 文章标题 -->
+    <a
+      href={"posts/" + post?.slug}
+      class="text-xl text-title hover:text-hover-text font-black transition-all duration-300"
+      >{post?.data.title}</a
+    >
+    <!-- 文章内容简述 -->
+    <p class="flex-grow">{post?.data.description}</p>
+    <!-- 类别 -->
+    <div class="mate">
+      <!-- 分类 -->
+      <div class="space-x-1">
+        <i class="iconfont icon-leibie"></i><span>{post?.data.categories}</span>
+      </div>
+      <!-- 标签 -->
+      <div>
+        <i class="iconfont icon-tag space-x-1">
+          {post?.data.tags.map((item) => <span>{item}</span>)}
+        </i>
+      </div>
+    </div>
+    <a href={"posts/" + post?.slug} class="read">阅读全文</a>
+  </div>
+</article>
+
+<style>
+  .card {
+    @apply w-full h-56 shadow-box flex rounded-xl  hover:shadow-hover-main transition;
+  }
+  .card:hover img {
+    @apply scale-110 rotate-2;
+  }
+  .cardImg {
+    @apply flex-1 overflow-hidden;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
+  }
+  .mate {
+    @apply flex items-center text-xs space-x-2 text-secondary;
+  }
+  .read {
+    @apply absolute bottom-0 right-0 text-center text-sm text-white/90 font-black bg-strong-bliss hover:translate-x-1;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s ease-in-out 0s;
+  }
+  i {
+    font-size: 12px !important;
+  }
+</style>

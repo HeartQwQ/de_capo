@@ -1,0 +1,9 @@
+---
+export interface Props {
+  level: string;
+}
+const { level } = Astro.props as Props;
+console.log(level);
+---
+
+<h1>{level}</h1>

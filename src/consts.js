@@ -5,19 +5,19 @@ export const SITE_TITLE = "De Capo"
 // 网站描述
 export const SITE_DESCRIPTION = "为世界上的美好而战！"
 // 用户名称
-export const UserName = "无心"
+export const Author = "无心"
 // 用户座右铭
 export const Motto = "为世界上的美好而战！"
 
-export const articleParameters = {
-  layout: '@/layouts/ArticleLayout.astro',
-  title: '关于本网站',
-  pubDate: "2023-04-01",
-  description: 'This is the first post of my new Astro blog.',
-  author: '无心',
-  tags: ["astro", "blogging", "learning in public"],
-  topping: true,
-}
+// export const articleParameters = {
+//   layout: '@/layouts/ArticleLayout.astro',
+//   title: '关于本网站',
+//   pubDate: "2023-04-01",
+//   description: 'This is the first post of my new Astro blog.',
+//   author: '无心',
+//   tags: ["astro", "blogging", "learning in public"],
+//   topping: true,
+// }
 
 
 // 网站导航链接

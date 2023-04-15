@@ -1,5 +1,5 @@
 ---
-import { UserName, Motto } from "@/consts";
+import { Author, Motto } from "@/consts";
 import TotalArticle from "./TotalArticle.astro";
 import SideIcon from "./SideIcon.astro";
 import MainButton from "./MainButton.astro";
@@ -13,10 +13,11 @@ import { linkList } from "@/consts";
       class="rounded-full w-40 h-40 m-auto"
       alt=""
     />
-    <h1 class="">{UserName}</h1>
+    <h1 class="">{Author}</h1>
     <h2 class="text-9">{Motto}</h2>
   </div>
-  <div class="flex justify-center divide-x text-6">
+  <!-- text-6 -->
+  <div class="flex justify-center divide-x">
     <TotalArticle num={999}>文章</TotalArticle>
     <TotalArticle num={999}>分类</TotalArticle>
     <TotalArticle num={999}>标签</TotalArticle>
