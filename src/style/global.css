@@ -1,33 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "./base.css";
 
-@layer base {
-  html {
-    height:3000px;
-    font-family: 'Noto Sans', sans-serif,'Noto Sans SC', sans-serif,'Noto Serif SC', serif;
-    @apply tracking-widest align-middle scroll-smooth antialiased text-base-text;
-  }
-  a {
-    @apply inline-block;
-  }
-}
+@import "tailwindcss/components";
+@import "./components.css";
 
-@layer utilities {
-  .navLink{
-    @apply relative before:navLinkBefore hover:before:w-full;
-  }
-  .navLinkBefore{
-    @apply absolute left-1/2 -bottom-1 inline-block w-0 bg-white rounded-full -translate-x-1/2 transition-all duration-500;
-    height: 3px;
-  }
-  .contentWidth {
-    width: calc(100% - 16rem);
-  }
-  .dividerPseudo {
-    @apply flex-1 h-px opacity-80 bg-divider;
-  }
-  .transition{
-    @apply transition-all duration-500;
-  }
-}
+@import "tailwindcss/utilities";
+@import "./utilities.css";

@@ -1,0 +1,16 @@
+/* 自定义类 */
+@layer utilities {
+  .dividerPseudo {
+    @apply flex-1 h-[1px] opacity-80 bg-divider;
+  }
+  .navLinkBefore{
+    @apply absolute left-1/2 -bottom-1 inline-block w-0 h-[3px] bg-white rounded-full -translate-x-1/2 transition-all duration-500;
+  }
+
+  .contentWidth {
+    width: calc(100% - 16rem);
+  }
+  .transition{
+    @apply transition-all duration-500;
+  }
+}

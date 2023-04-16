@@ -6,7 +6,7 @@ import BreadSlices from "./BreadSlices.astro";
 const { pathname } = Astro.url;
 ---
 
-<nav class="fixed top-0 left-0 w-full">
+<nav class="fixed top-0 left-0 w-full h-[50px]">
   <div
     class="w-full h-full flex justify-between items-center max-lg:px-5 min-lg:container"
   >
@@ -32,7 +32,7 @@ const { pathname } = Astro.url;
   </div>
 </nav>
 <style>
-  nav {
-    height: 50px;
+  .navLink {
+    @apply relative before:navLinkBefore hover:before:w-full;
   }
 </style>

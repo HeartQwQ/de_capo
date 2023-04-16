@@ -3,7 +3,14 @@
 </h2>
 <style>
   .divider {
-    /* text-c */
-    @apply flex justify-between items-center text-center text-divider text-2xl my-6 font-black  before:dividerPseudo before:mr-5 after:dividerPseudo after:ml-5;
+    @apply flex justify-between items-center text-center text-divider text-2xl my-6 font-black;
+  }
+  .divider::before {
+    content: "";
+    @apply dividerPseudo mr-5;
+  }
+  .divider::after {
+    content: "";
+    @apply dividerPseudo ml-5;
   }
 </style>
