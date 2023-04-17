@@ -10,13 +10,17 @@ const { pathname } = Astro.url;
   <div
     class="w-full h-full flex justify-between items-center max-lg:px-5 min-lg:container"
   >
+    <!-- 面包片 -->
     <BreadSlices />
+    <!-- 导航栏 -->
     <div class="space-x-4 max-md:hidden">
       <span>{SITE_TITLE}</span>
       {
         linkList.map((item) => (
           <Link
-            class={`navLink ${item.path === pathname ? "active" : ""}`}
+            class={`navLink before:navLinkBefore${
+              item.path === pathname ? " active" : ""
+            }`}
             href={item.path}
             icon={item.icon}
           >
@@ -25,6 +29,7 @@ const { pathname } = Astro.url;
         ))
       }
     </div>
+    <!-- 功能栏 -->
     <div class="space-x-4">
       <i class="iconfont icon-richu"></i>
       <i class="iconfont icon-sousuo"></i>
@@ -33,6 +38,6 @@ const { pathname } = Astro.url;
 </nav>
 <style>
   .navLink {
-    @apply relative before:navLinkBefore hover:before:w-full;
+    @apply relative hover:before:w-full;
   }
 </style>

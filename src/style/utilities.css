@@ -1,15 +1,17 @@
 /* 自定义类 */
 @layer utilities {
+  /* 导航栏链接的伪元素 */
+  .navLinkBefore{
+    @apply absolute left-1/2 -bottom-1 inline-block w-0 h-[3px] bg-white rounded-full -translate-x-1/2 transition;
+  }
+  /* 分割线的伪元素样式 */
   .dividerPseudo {
     @apply flex-1 h-[1px] opacity-80 bg-divider;
   }
-  .navLinkBefore{
-    @apply absolute left-1/2 -bottom-1 inline-block w-0 h-[3px] bg-white rounded-full -translate-x-1/2 transition-all duration-500;
-  }
-
   .contentWidth {
     width: calc(100% - 16rem);
   }
+  /* 过渡效果 */
   .transition{
     @apply transition-all duration-500;
   }
