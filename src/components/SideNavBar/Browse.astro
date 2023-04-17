@@ -2,10 +2,15 @@
 import Link from "../Link.astro";
 ---
 
-<div class="w-full flex justify-center">
-  <!-- hover:text-red-400 -->
-  <Link href="#" icon="icon-arrowleft text-2xl" class="" />
-  <Link href="#" icon="icon-arrowup text-2xl" class="" />
-  <Link href="#" icon="icon-arrowdown text-2xl" class="" />
-  <Link href="#" icon="icon-arrowright text-2xl" class="" />
+<div class="w-full flex justify-around text-jump font-black">
+  <Link href="#" icon="icon-arrowleft text-xl" />
+  <Link href="#main" icon="icon-arrowup text-xl" />
+  <Link href="#footer" icon="icon-arrowdown text-xl" />
+  <Link href="#" icon="icon-arrowright text-xl" />
 </div>
+
+<style>
+  a:hover{
+    @apply text-hover-text;
+  }
+</style>

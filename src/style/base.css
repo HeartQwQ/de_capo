@@ -3,7 +3,7 @@
   html {
     height:3000px;
     font-family: 'Noto Sans', sans-serif,'Noto Sans SC', sans-serif,'Noto Serif SC', serif;
-    @apply tracking-widest align-middle scroll-smooth antialiased text-base-text;
+    @apply tracking-widest align-middle scroll-smooth antialiased text-base-text bg-main;
   }
   a {
     @apply inline-block;

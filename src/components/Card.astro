@@ -2,24 +2,37 @@
 import type { CollectionEntry } from "astro:content";
 interface Props {
   post: CollectionEntry<"docs"> | undefined;
+  order: number;
 }
 
-const { post } = Astro.props;
+const { post, order } = Astro.props;
 ---
 
-<article class="card">
+<article class:list={["card", { "flex-row-reverse": order % 2 === 1 }]}>
   <!-- 图片 -->
-  <a href={"posts/" + post?.slug} class="cardImg">
+  <a
+    href={"posts/" + post?.slug}
+    class:list={[
+      "flex-1 overflow-hidden",
+      { "card-img-left": order % 2 === 0 },
+      { "card-img-right": order % 2 === 1 },
+    ]}
+  >
     <img
-      src="https://img.timelessq.com/images/2022/07/26/c22bb7736559a7554506b05203018145.jpg"
+      src={post?.data.img}
       alt={post?.data.categories}
-      class="w-full h-full object-cover transition-all duration-500"
+      class="h-full w-full object-cover transition-all duration-500"
     />
   </a>
   <!-- 文章信息 -->
-  <div class="flex-1 p-5 flex flex-col space-y-2 relative">
+  <div
+    class="relative flex flex-1 flex-col space-y-2 p-5"
+    style="perspective: 62.5rem;"
+  >
     <!-- 时间 字数信息 -->
-    <div class="mate justify-end">
+    <div
+      class:list={["mate", order % 2 === 1 ? "justify-start" : "justify-end"]}
+    >
       <span>发表于</span>
       <div class="space-x-1">
         <i class="iconfont icon-rili"></i><span>{post?.data.pubDate}</span>
@@ -32,46 +45,74 @@ const { post } = Astro.props;
     <!-- 文章标题 -->
     <a
       href={"posts/" + post?.slug}
-      class="text-xl text-title hover:text-hover-text font-black transition-all duration-300"
+      class="text-xl font-black text-title transition-all duration-300 hover:text-hover-text"
       >{post?.data.title}</a
     >
     <!-- 文章内容简述 -->
-    <p class="flex-grow">{post?.data.description}</p>
+    <p class="line-clamp-4 flex-grow">{post?.data.description}</p>
     <!-- 类别 -->
-    <div class="mate">
+    <div
+      class="mate"
+      class:list={order % 2 === 0 ? "justify-start" : "justify-end"}
+    >
       <!-- 分类 -->
       <div class="space-x-1">
-        <i class="iconfont icon-leibie"></i><span>{post?.data.categories}</span>
+        <i class="iconfont icon-leibie"></i><a
+          href=""
+          class="hover:text-hover-text">{post?.data.categories}</a
+        >
       </div>
       <!-- 标签 -->
       <div>
         <i class="iconfont icon-tag space-x-1">
-          {post?.data.tags.map((item) => <span>{item}</span>)}
+          {
+            post?.data.tags.map((item) => (
+              <a href="" class="hover:text-hover-text">
+                {item}
+              </a>
+            ))
+          }
         </i>
       </div>
     </div>
-    <a href={"posts/" + post?.slug} class="read">阅读全文</a>
+    <!-- 阅读全文 -->
+    <a
+      href={"posts/" + post?.slug}
+      class="read"
+      class:list={[order % 2 === 1 ? "read-left" : "read-right"]}>阅读全文</a
+    >
   </div>
 </article>
 
 <style>
   .card {
-    @apply w-full h-56 shadow-box flex rounded-xl  hover:shadow-hover-main transition;
+    @apply my-6 flex h-56 w-full rounded-xl shadow-box transition hover:shadow-hover-main;
   }
   .card:hover img {
-    @apply scale-110 rotate-2;
+    @apply rotate-2 scale-110;
   }
-  .cardImg {
-    @apply flex-1 overflow-hidden;
+  .card-img-left {
     clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
   }
+  .card-img-right {
+    clip-path: polygon(0 0%, 100% 0%, 100% 100%, 8% 100%);
+  }
   .mate {
-    @apply flex items-center text-xs space-x-2 text-secondary;
+    @apply flex items-center space-x-2 text-xs text-secondary;
   }
   .read {
-    @apply absolute bottom-0 right-0 text-center text-sm text-white/90 font-black bg-strong-bliss hover:translate-x-1;
-    padding: 0.5rem 1rem;
-    transition: all 0.2s ease-in-out 0s;
+    @apply absolute bottom-0 bg-strong-bliss px-4 py-2 text-center text-sm font-black text-white/90 transition;
+  }
+  .read-left {
+    left: 0;
+    border-radius: 0 0.75rem;
+  }
+  .read-right {
+    right: 0;
+    border-radius: 0.75rem 0;
+  }
+  .read:hover {
+    transform: translateZ(2.5rem);
   }
   i {
     font-size: 12px !important;

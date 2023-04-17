@@ -14,7 +14,8 @@ const docs = defineCollection({
     tags: z.array(z.string()),
     pubDate: z.date().transform(date => dayjs(date).format('YYYY/MM/DD')),
     topping: z.boolean().default(false),
-    length: z.number()
+    length: z.number(),
+    img:z.string().default('https://img.timelessq.com/images/2022/07/26/c22bb7736559a7554506b05203018145.jpg')
   }),
 });
 

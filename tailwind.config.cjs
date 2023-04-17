@@ -9,22 +9,22 @@ module.exports = {
 				"header-bg": '70dvh', // 顶部背景高度
 			},
 			boxShadow: {
-				box: '0 0 6px 0px rgba(0, 0, 0, 0.2)', // 盒子阴影
-				"hover-main": '0 0 12px 0px rgba(0, 0, 0, 0.2)' // 主体文章hover下的阴影
+				box: '0 0 3px 0px rgba(0, 0, 0, 0.2)', // 盒子阴影
+				"hover-main": '0 0 10px 0px rgba(0, 0, 0, 0.2)' // 主体文章hover下的阴影
 			},
 			// 网站颜色
 			colors: {
 				white: '#fff',
 				black: '#000',
-				main: '#f6f8fa', // 主体背景颜色
-				divider: '#9CA3AF', // 分割线颜色
-				title: '#EF4444', // 文章标题颜色
-				"base-text": '#334155', // 基础文字颜色
-				secondary: '#94a3b8', // 次要内容颜色
-				point: '',
+				main: '#fbfbfb', // 主体背景颜色
+				divider: '#d1d5db', // 分割线颜色
+				title: '#f43f5e', // 文章标题颜色
+				"base-text": '#000', // 基础文字颜色
+				secondary: '#9ca3af', // 次要内容颜色
+				jump: '#52525b',
 				// hover颜色
 				hover: {
-					text: "#0ea5e9" // 文字的hover颜色
+					text: "#3b82f6" // 文字的hover颜色
 				}
 			},
 			// 渐变颜色

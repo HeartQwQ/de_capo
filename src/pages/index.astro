@@ -10,13 +10,22 @@ import { getCollection } from "astro:content";
 const entry = await getCollection("docs");
 
 const stickyPosts = entry.find((item) => item.data.topping);
+const latestArticles = entry.filter((item) => !item.data.topping);
+
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div slot="Content">
     <Divider>置顶文章</Divider>
-    <Card post={stickyPosts} />
+    <Card post={stickyPosts} order={0}/>
     <Divider>最新文章</Divider>
+    <div class="space-y-9">
+      {
+        latestArticles.map((item,index)=>(
+          <Card post={item} order={index} />
+        ))
+      }
+    </div>
   </div>
   <Panels slot="SideNavBar" />
 </Layout>

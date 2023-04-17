@@ -1,5 +1,5 @@
 ---
-import { Author, Motto } from "@/consts";
+import { Author, Motto, Avatar } from "@/consts";
 import TotalArticle from "./TotalArticle.astro";
 import SideIcon from "./SideIcon.astro";
 import MainButton from "./MainButton.astro";
@@ -9,15 +9,14 @@ import { linkList } from "@/consts";
 <div class="w-full pt-5 space-y-5">
   <div class="text-center space-y-2">
     <img
-      src="https://shoka.lostyu.me/images/avatar.jpg"
+      src={Avatar}
       class="rounded-full w-40 h-40 m-auto"
       alt=""
     />
-    <h1 class="">{Author}</h1>
-    <h2 class="text-9">{Motto}</h2>
+    <p>{Author}</p>
+    <p class="text-secondary">{Motto}</p>
   </div>
-  <!-- text-6 -->
-  <div class="flex justify-center divide-x">
+  <div class="flex justify-center divide-x text-jump">
     <TotalArticle num={999}>文章</TotalArticle>
     <TotalArticle num={999}>分类</TotalArticle>
     <TotalArticle num={999}>标签</TotalArticle>

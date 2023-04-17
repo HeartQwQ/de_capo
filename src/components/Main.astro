@@ -2,16 +2,16 @@
 import Browse from "./SideNavBar/Browse.astro";
 ---
 
-<main class="w-full bg-main">
-  <div class="min-lg:container flex justify-between" style="height: 3000px;">
+<main id="main" class="w-full bg-main">
+  <div class="flex justify-between min-lg:container" style="height: 3000px;">
     <!-- 文章栏 -->
     <div
-      class="max-lg:w-full min-lg:contentWidth pt-3 px-5 rounded-xl bg-white"
+      class="min-lg:contentWidth rounded-xl bg-white px-5 pt-3 max-lg:w-full"
     >
       <slot name="Content" />
     </div>
     <!-- 个人信息栏 -->
-    <div class="max-lg:hidden static w-60">
+    <div class="static w-60 max-lg:hidden">
       <div id="sideNavBar">
         <slot name="SideNavBar" />
         <Browse />
@@ -45,7 +45,7 @@ import Browse from "./SideNavBar/Browse.astro";
 
 <style>
   #sideNavBar {
-    @apply relative top-0 px-5 w-60 flex flex-col justify-between bg-white transition-all duration-700 ease-in-out rounded-xl;
+    @apply relative top-0 flex w-60 flex-col justify-between rounded-xl bg-white px-5 transition-all duration-700 ease-in-out;
     height: 100dvh;
   }
   #sideNavBar.fiexd {
