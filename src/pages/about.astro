@@ -2,9 +2,15 @@
 import Layout from "@/layouts/Layout.astro";
 import Panels from "@/components/SideNavBar/Panels.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
+import { getEntryBySlug } from "astro:content";
+const article = await getEntryBySlug("docs", "1");
 ---
 
-<Layout title={SITE_TITLE + " - 关于"} description={SITE_DESCRIPTION}>
+<Layout
+  title={SITE_TITLE + " - 关于"}
+  description={SITE_DESCRIPTION}
+  post={article}
+>
   <div slot="Content">关于页面</div>
   <Panels slot="SideNavBar" />
 </Layout>

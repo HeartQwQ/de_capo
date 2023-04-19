@@ -2,10 +2,12 @@
 import NavBar from "@/components/Header/NavBar/NavBar.astro";
 import HeaderTitle from "@/components/Header/HeaderTitle.astro";
 import HeaderImg from "@/components/Header/HeaderImg.astro";
+
+const { post } = Astro.props;
 ---
 
-<header class="w-full h-header text-white snap-start">
+<header class="h-header w-full snap-start text-white">
   <NavBar />
-  <HeaderTitle />
+  <HeaderTitle post={post} />
   <HeaderImg />
 </header>

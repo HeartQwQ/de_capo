@@ -1,35 +1,25 @@
 ---
 import { SITE_TITLE } from "@/consts";
 
+const { post } = Astro.props;
+
 const isHome = Astro.url.pathname === "/";
 ---
 
-{
-  isHome && (
-    <div class="headerTitle">
-      <h1>{SITE_TITLE}</h1>
-      <p>{SITE_TITLE}</p>
-    </div>
-  )
-}
-<!-- (
-    <div class="header-title">
-      <h1>{props}</h1>
-      <div>
-        <p>{props}</p>
-      </div>
-    </div>
-  ) -->
+<div class="headerTitle">
+  {isHome ? <h1>{SITE_TITLE}</h1> : <h1 class="text-2xl">{post.data.title}</h1>}
+  <p>开发中······ 20%</p>
+</div>
 
 <style>
   .headerTitle {
-    @apply fixed w-full px-2 flex flex-col justify-center items-center text-center -z-10;
+    @apply fixed -z-10 flex w-full flex-col items-center justify-center px-2 text-center;
     top: 50px;
     height: calc(50vh - 50px);
     letter-spacing: 0.125em;
   }
   h1 {
-    @apply text-2xl my-5;
+    @apply my-5 text-2xl;
   }
   p {
     font-size: 12px;

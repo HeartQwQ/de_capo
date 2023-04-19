@@ -1,4 +1,5 @@
 // 全局数据配置文件
+import avatar from "/Avatar.jpg"
 
 // 网站名称
 export const SITE_TITLE = "De Capo"
@@ -9,7 +10,7 @@ export const Author = "无心"
 // 用户座右铭
 export const Motto = "为世界上的美好而战！"
 // 头像
-export const Avatar = "https://shoka.lostyu.me/images/avatar.jpg"
+export const Avatar = avatar || "https://shoka.lostyu.me/images/avatar.jpg"
 
 // 网站导航链接
 export const linkList = [

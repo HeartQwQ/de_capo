@@ -4,11 +4,12 @@ import { SITE_TITLE, linkList } from "@/consts.js";
 import BreadSlices from "./BreadSlices.astro";
 
 const { pathname } = Astro.url;
+console.log(pathname);
 ---
 
-<nav class="fixed top-0 left-0 w-full h-[50px]">
+<nav class="fixed left-0 top-0 h-[50px] w-full">
   <div
-    class="w-full h-full flex justify-between items-center max-lg:px-5 min-lg:container"
+    class="flex h-full w-full items-center justify-between min-lg:container max-lg:px-5"
   >
     <!-- 面包片 -->
     <BreadSlices />

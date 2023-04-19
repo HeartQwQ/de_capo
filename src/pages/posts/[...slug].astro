@@ -16,6 +16,6 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<ArticleLayout title="1" description="1">
+<ArticleLayout post={entry}>
   <Content />
 </ArticleLayout>

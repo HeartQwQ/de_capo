@@ -8,14 +8,14 @@
 </div>
 <style>
   .HeaderImg {
-    @apply fixed top-0 left-0 w-full h-header-bg -z-20;
+    @apply fixed left-0 top-0 -z-20 h-header-bg w-full;
   }
   .HeaderImg::before {
     content: "";
-    @apply absolute top-0 left-0 w-full h-full bg-black opacity-20 -z-10;
+    @apply absolute left-0 top-0 -z-10 h-full w-full bg-black opacity-30;
   }
   .rotationAnimation {
-    @apply absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover saturate-150 opacity-0 -z-50;
+    @apply absolute left-0 top-0 -z-50 h-full w-full bg-cover bg-center bg-no-repeat opacity-0 saturate-150;
     animation: rotationAnimation 36s linear infinite;
   }
   .rotationAnimation:nth-child(1) {
