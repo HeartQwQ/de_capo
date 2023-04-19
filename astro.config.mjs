@@ -1,6 +1,6 @@
 import { defineConfig } from 'astro/config';
 import tailwind from "@astrojs/tailwind";
-import markdoc from "@astrojs/markdoc";
+import remarkToc from 'remark-toc';
 
 // https://astro.build/config
 export default defineConfig({
@@ -9,5 +9,8 @@ export default defineConfig({
     config: {
       applyBaseStyles: false
     }
-  }), markdoc()]
+  })],
+  markdown: {
+    remarkPlugins: [remarkToc],
+  }
 });

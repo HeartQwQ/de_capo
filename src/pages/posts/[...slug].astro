@@ -1,14 +1,17 @@
 ---
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 import { getCollection } from "astro:content";
-
+// 创建动态路由: 根据docs中的文档生成路由
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("docs");
-  return blogEntries.map((entry) => ({
+  // 获取所有文章
+  const docs = await getCollection("docs");
+  // 将文章路径和类型返回，自动生成对应的路由和类型
+  return docs.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
 }
+
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---

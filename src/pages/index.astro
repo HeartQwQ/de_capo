@@ -5,26 +5,23 @@ import Divider from "@/components/Divider.astro";
 import Card from "@/components/Card.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
+// 查询所有文章
 import { getCollection } from "astro:content";
-
 const entry = await getCollection("docs");
 
+// 获取置顶文章
 const stickyPosts = entry.find((item) => item.data.topping);
+// 获取除置顶文章外的最新文章
 const latestArticles = entry.filter((item) => !item.data.topping);
-
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div slot="Content">
     <Divider>置顶文章</Divider>
-    <Card post={stickyPosts} order={0}/>
+    <Card post={stickyPosts} order={0} />
     <Divider>最新文章</Divider>
     <div class="space-y-9">
-      {
-        latestArticles.map((item,index)=>(
-          <Card post={item} order={index} />
-        ))
-      }
+      {latestArticles.map((item, index) => <Card post={item} order={index} />)}
     </div>
   </div>
   <Panels slot="SideNavBar" />
