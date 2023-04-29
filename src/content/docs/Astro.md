@@ -1,6 +1,6 @@
 ---
 title: 'Astro基本使用'
-description: ''
+description: 'Astro 是集多功能于一体的 Web 框架，用于构建快速、以内容为中心的网站。'
 sortOrder: 1
 pubDate: 2023-04-10 18:00:00
 categories: '前端'

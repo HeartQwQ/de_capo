@@ -3,7 +3,8 @@ import Layout from "@/layouts/Layout.astro";
 import Panels from "@/components/SideNavBar/Panels.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 import { getEntryBySlug } from "astro:content";
-const article = await getEntryBySlug("docs", "Hello_World");
+const article = await getEntryBySlug("docs", "hello_world");
+console.log(article);
 ---
 
 <Layout
