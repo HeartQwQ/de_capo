@@ -8,7 +8,7 @@ export const SITE_DESCRIPTION = "为世界上的美好而战！"
 // 用户名称
 export const Author = "无心"
 // 用户座右铭
-export const Motto = "为世界上的美好而战！"
+export const Motto = "技术宅拯救世界！"
 // 头像
 export const Avatar = avatar || "https://shoka.lostyu.me/images/avatar.jpg"
 
